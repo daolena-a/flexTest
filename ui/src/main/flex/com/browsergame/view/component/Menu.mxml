@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" height="100%" width="200">
+  <mx:ViewStack
+            id="myViewStack"
+            width="47.5%" height="100%" 
+            borderColor="#000000" borderStyle="solid"
+        >
+            <mx:Canvas label="View 1" width="100%" height="100%">
+                <mx:Label  text="Contents 1"/>
+            </mx:Canvas>
+            <mx:Canvas label="View 2" width="100%" height="100%">
+                <mx:Label  text="Contents 2"/>
+            </mx:Canvas>
+            <mx:Canvas label="View 3" width="100%" height="100%">
+                <mx:Label text="Contents 3"/>
+            </mx:Canvas>
+        </mx:ViewStack>
+     <mx:LinkBar  dataProvider="{myViewStack}" />
+</mx:VBox>

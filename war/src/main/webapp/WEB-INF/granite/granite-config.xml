@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE granite-config PUBLIC "-//Granite Data Services//DTD granite-config internal//EN"
+    "http://www.graniteds.org/public/dtd/1.1.0/granite-config.dtd">
+<granite-config>
+
+        <tide-components>
+        <tide-component annotated-with="org.granite.messaging.service.annotations.RemoteDestination"/>
+    </tide-components>
+</granite-config>

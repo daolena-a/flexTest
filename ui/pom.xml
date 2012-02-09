@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>browserGame</artifactId>
+        <groupId>browserGame</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ui</artifactId>
+    <packaging>swf</packaging>
+
+    <properties>
+        <flex.sdk.version>4.5.0.17855</flex.sdk.version>
+        <flex.mojos.maven.version>3.5.0</flex.mojos.maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>4.5.0.17689</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-essentials-swc</artifactId>
+            <version>2.0.0.GA</version>
+            <type>swc</type>
+
+        </dependency>
+        <dependency>
+            <groupId>browserGame</groupId>
+            <artifactId>service</artifactId>
+            <version>1.0</version>
+
+        </dependency>
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-swc</artifactId>
+            <version>2.0.0.GA</version>
+            <type>swc</type>
+
+        </dependency>
+        <!--
+mvn install:install-file -Dfile=swiz-framework-v1.3.1.swc -DgroupId=swizframework     -DartifactId=swiz-framework -Dversion=1.3.1 -Dpackaging=swc
+
+        -->
+       <dependency>
+	    <groupId>swizframework</groupId>
+	    <artifactId>swiz-framework</artifactId>
+	    <version>1.3.1</version>
+	    <type>swc</type>
+        </dependency>
+
+        <!--    <dependency>
+            <groupId>org.swizframework</groupId>
+            <artifactId>swiz-framework</artifactId>
+            <version>${swiz.version}</version>
+            <classifier>sparkonly</classifier>
+            <type>swc</type>
+            <scope>compile</scope>
+        </dependency>-->
+
+        <!-- flexmojos Unit testing support -->
+
+    </dependencies>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flexmojos</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
+    <!--<pluginRepositories>
+       <pluginRepository>
+          <id>flex-mojos-plugin-repository</id>
+          <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+          <releases>
+             <enabled>true</enabled>
+          </releases>
+          <snapshots>
+             <enabled>true</enabled>
+          </snapshots>
+       </pluginRepository>
+    </pluginRepositories>-->
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>4.0-SNAPSHOT</version>
+                <extensions>true</extensions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>4.5.0.17689</version>
+                        <type>pom</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.adobe.flex.compiler</groupId>
+                        <artifactId>adt</artifactId>
+                        <version>4.5.0.17689</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>default-compile-swf</id>
+                        <configuration>
+                            <sourceFile>Main.mxml</sourceFile>
+                            <ignoreVersionIssues>true</ignoreVersionIssues>
+                            <services>${basedir}/src/main/resources/flex/services-config.xml</services>
+                            <contextRoot>war-1.0</contextRoot>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.0-alpha-4</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.graniteds</groupId>
+                                    <artifactId>granite-swc</artifactId>
+                                    <type>swc</type>
+                                    <version>2.0.0.GA</version>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>
+                                        libs
+                                    </outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.graniteds</groupId>
+                                    <artifactId>granite-essentials-swc</artifactId>
+                                    <version>2.0.0.GA</version>
+                                    <type>swc</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>
+                                        libs
+                                    </outputDirectory>
+                                </artifactItem>
+
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>browserGame</groupId>
+    <artifactId>browserGame</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <modules>
+        <module>ui</module>
+        <module>war</module>
+        <module>ejb</module>
+        <module>service</module>
+    </modules>
+
+    <repositories>
+        <!-- Required for regular plugin use until moved over to Maven central repo. -->
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- Required for building plugin from source. -->
+        <repository>
+            <id>flex-mojos-internal-repository</id>
+            <url>http://repository.sonatype.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>Java.net</id>
+            <name>Java.net Repository</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+        <repository>
+            <id>sonatype-flex</id>
+            <url>http://repository.sonatype.org/service/local/repositories/flex/content</url>
+        </repository>
+        <repository>
+            <id>flex-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+
+       <!-- <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>-->
+        <repository>
+            <id>flexmojos</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+            <layout>default</layout>
+        </repository>
+
+
+        <!-- <repository>
+           <id>apache-internal-repository</id>
+           <url>https://repository.apache.org/content/repositories/maven-014/</url>
+           <releases> <enabled>true</enabled> </releases>
+           <snapshots> <enabled>true</enabled> </snapshots>
+       </repository> -->
+
+    </repositories>
+    <pluginRepositories>
+        <!-- Required for regular plugin use until moved over to Maven central repo. -->
+        <pluginRepository>
+            <id>flex-mojos-plugin-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <!-- Required for building plugin from source. 
+        <pluginRepository>
+            <id>flex-mojos-internal-plugins-repository</id>
+            <url>http://repository.sonatype.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>-->
+    </pluginRepositories>
+
+
+</project>

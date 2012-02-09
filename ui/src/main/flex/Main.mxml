@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                xmlns:component="com.browsergame.view.component.*" initialize="init()">
+    <component:Header></component:Header>
+    <mx:VBox horizontalAlign="left" width="100%">
+        <component:Menu></component:Menu>
+    </mx:VBox>
+
+    <component:Footer></component:Footer>
+    <mx:Label id="labell"/>
+    <mx:RemoteObject id="test" destination="testService" result="result(event)" fault="fault(event)"/>
+    <mx:Script><![CDATA[
+        import mx.rpc.events.FaultEvent;
+        import mx.rpc.events.ResultEvent;
+
+        
+        public function init():void {
+            test.test();
+        }
+
+        public function result(event:ResultEvent):void {
+            labell.text = event.toString();
+        }
+
+        public function fault(event:FaultEvent):void {
+            labell.text = event.toString();
+        }
+        ]]></mx:Script>
+</mx:Application>

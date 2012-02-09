@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<services-config>
+
+    <services>
+	<service id="granite-service"  class="flex.messaging.services.RemotingService"
+      messageTypes="flex.messaging.messages.RemotingMessage">
+      <destination id="testService">
+        <channels>
+          <channel ref="graniteamf"  />
+        </channels>
+        <properties>
+          <scope>session</scope>
+          <factory>ejbFactory</factory>
+                   
+
+        </properties>
+      </destination>
+    </service>
+  </services>
+
+    <factories>
+            <factory id="ejbFactory" class="org.granite.messaging.service.EjbServiceFactory">
+                <properties>
+                   <lookup>java:app/war-1.0/BrowserGameService!com.browser.game.service.BrowserGameService</lookup>
+                </properties>
+            </factory>
+        </factories>
+
+  <channels>
+    <channel-definition id="graniteamf"
+      class="mx.messaging.channels.AMFChannel">
+      <endpoint
+        uri="http://localhost:8080/war-1.0/graniteamf/amf"
+        class="flex.messaging.endpoints.AMFEndpoint"  />
+    </channel-definition>
+  </channels>
+
+</services-config>
